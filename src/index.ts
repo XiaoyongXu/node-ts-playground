@@ -2,6 +2,7 @@ import express from 'express'
 import itemRoutes from './routes/itemRoutes'
 import recipeRoutes from './routes/recipeRoutes'
 import testRoutes from './routes/testRoutes'
+import movieRoutes from './routes/movieRoutes'
 import { errorHandler } from './middlewares/errorHandler'
 
 
@@ -12,13 +13,13 @@ app.use(express.json())
 
 app.get('/', (_req, res) => {
   res.send('Hello from TypeScript!')
-  res.send
 })
 
 
 app.use('/items', itemRoutes)
 app.use('/recipes/', recipeRoutes)
 app.use('/test', testRoutes)
+app.use('/movies', movieRoutes)
 
 app.use(errorHandler)
 

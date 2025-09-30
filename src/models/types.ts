@@ -1,6 +1,6 @@
 export interface Item {
-  id: number;
-  name: string;
+  id: number
+  name: string
 }
 
 export interface Product {
@@ -26,8 +26,9 @@ export interface Recipe {
 
 
 export interface Todo {
-  userId: number,
-  id: number,
-  title: string,
+  userId: number
+  id: number
+  title: string
   completed: boolean
 }
+
