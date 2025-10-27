@@ -1,14 +1,16 @@
 import express from 'express'
 import itemRoutes from './routes/itemRoutes'
 import recipeRoutes from './routes/recipeRoutes'
-import testRoutes from './routes/testRoutes'
+import messageRoutes from './routes/messageRoutes'
 import movieRoutes from './routes/movieRoutes'
+import testRoutes from './routes/itemRoutes'
 import { errorHandler } from './middlewares/errorHandler'
+import cors from 'cors';
 
 
 const app = express()
 const PORT = 3000
-
+app.use(cors());
 app.use(express.json())
 
 app.get('/', (_req, res) => {
@@ -17,15 +19,20 @@ app.get('/', (_req, res) => {
 
 
 app.use('/items', itemRoutes)
-app.use('/recipes/', recipeRoutes)
-app.use('/test', testRoutes)
+app.use('/recipes', recipeRoutes)
+app.use('/messages', messageRoutes)
 app.use('/movies', movieRoutes)
+app.use('/test', testRoutes)
 
 app.use(errorHandler)
 
 app.listen(PORT, () => {
   console.log(`🚀 Server listening at http://localhost:${PORT}`)
-})
+});
+
+
+
+
 
 
 
